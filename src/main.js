@@ -1,24 +1,23 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+const lista = ["Erika", 35];
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+localStorage.setItem("minLista", JSON.stringify(lista));
+const sparadLista = JSON.parse(localStorage.getItem("minLista"));
 
-setupCounter(document.querySelector('#counter'))
+const button = document.getElementById("button");
+const text = document.getElementById("text");
+
+button.addEventListener ("click", (event) => {
+  event.preventDefault();
+  text.innerHTML = sparadLista;
+});
+
+const personer = [
+  new Person("Erika", 35, "SFI-lärare"),
+  new Person("Anna", 28, "Designer"),
+  new Person("Johan", 42, "Ingenjör"),
+  new Person("Sara", 31, "Frontend Developer"),
+  new Person("Karl", 50, "Lärare")
+];
+
+localStorage.setItem("enLista", JSON.stringify(personer));
+const getList = JSON.parse(localStorage.getIdtem("enLista"));
