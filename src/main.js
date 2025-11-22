@@ -20,4 +20,4 @@ const personer = [
 ];
 
 localStorage.setItem("enLista", JSON.stringify(personer));
-const getList = JSON.parse(localStorage.getIdtem("enLista"));
+const getList = JSON.parse(localStorage.getItem("enLista"));
